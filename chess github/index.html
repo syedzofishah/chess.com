@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chess details, history, and rules">
+    <title>Chess Details</title>
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(8, 50px);
+    grid-template-rows: repeat(8, 50px);
+    gap: 1px;
+}
+
+.square {
+    width: 50px;
+    height: 50px;
+    background-color: #f0d9b5;
+}
+
+.square:nth-child(even) {
+    background-color: #b58863;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+</style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#rules">Rules</a></li>
+                <li><a href="#history">History</a></li>
+                <li><a href="#chessboard">Chessboard</a></li>
+                <li><a href="#puzzles">Puzzles</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about">
+            <h1>About Chess</h1>
+            <p>Chess is a two-player strategy board game played on a chessboard. It is one of the most popular games worldwide, played both casually and professionally.</p>
+        </section>
+
+        <section id="rules">
+            <h1>Chess Rules</h1>
+            <p>The game consists of 16 pieces: one King, one Queen, two Rooks, two Knights, two Bishops, and eight Pawns for each player. The aim is to checkmate the opponent's King.</p>
+            <ul>
+                <li><strong>King:</strong> Moves one square in any direction.</li>
+                <li><strong>Queen:</strong> Moves any number of squares in any direction.</li>
+                <li><strong>Rook:</strong> Moves horizontally or vertically any number of squares.</li>
+                <li><strong>Bishop:</strong> Moves diagonally any number of squares.</li>
+                <li><strong>Knight:</strong> Moves in an L shape.</li>
+                <li><strong>Pawn:</strong> Moves forward one square, but captures diagonally.</li>
+            </ul>
+        </section>
+
+        <section id="history">
+            <h1>History of Chess</h1>
+            <p>Chess originated in India around the 6th century AD, evolving from a game called chaturanga. It spread to Persia and later to Europe, where it became the modern game we know today.</p>
+        </section>
+
+        <section id="chessboard">
+            <h1>Chessboard Layout</h1>
+            <p>The chessboard consists of 64 squares arranged in an 8x8 grid. The squares alternate between light and dark colors.</p>
+            <div id="board">
+                <!-- A basic grid layout to represent a chessboard -->
+                <div class="row">
+                    <div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div>
+                    <div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div>
+                </div>
+                <!-- Repeat rows as needed -->
+            </div>
+        </section>
+
+        <section id="puzzles">
+            <h1>Chess Puzzles</h1>
+            <p>Explore some challenging chess puzzles to improve your skills.</p>
+            <button id="loadPuzzle">Load Puzzle</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Chess World. All Rights Reserved.</p>
+    </footer>
+<script>
+const express = require('express');
+    const app = express();
+    const port = 3000;
+    
+    app.use(express.static('public'));
+    
+    app.get('/puzzle', (req, res) => {
+        const puzzle = {
+            position: "e2-e4",
+            solution: "e7-e5"
+        };
+        res.json(puzzle);
+    });
+    
+    app.listen(port, () => {
+        console.log(`Chess website server listening at http://localhost:${port}`);
+    });
+    </script>
+
+</body>
+</html>
